@@ -1,3 +1,4 @@
+import os
 from neo4j import GraphDatabase, Transaction
 
 
@@ -76,8 +77,8 @@ class Neo4jQueries:
 if __name__ == "__main__":
     # Настройки подключения к базе данных
     uri = "bolt://localhost:7687"
-    user = "neo4j"
-    password = "123"
+    user = os.getenv("NEO4J_USERNAME")
+    password = os.getenv("NEO4J_PASSWORD")
 
     # Инициализация класса
     db = Neo4jQueries(uri, user, password)
